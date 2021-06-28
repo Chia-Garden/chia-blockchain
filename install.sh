@@ -116,7 +116,9 @@ python -m pip install --upgrade pip
 python -m pip install wheel
 
 # pypi does not include source for clvm_rs 0.1.8
-pip install git+https://github.com/Chia-Network/clvm_rs@0.1.8#clvm_rs
+if [[ $(uname -m) == "arm64" ]]; then
+    pip install git+https://github.com/Chia-Network/clvm_rs@0.1.8#clvm_rs
+fi
 
 #if [ "$INSTALL_PYTHON_VERSION" = "3.8" ]; then
 # This remains in case there is a diversion of binary wheels
